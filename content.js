@@ -35,29 +35,10 @@ function displayProducts(products) {
     console.log('response', product)
     const productBox = createProductBox(product);
     containerClothing.appendChild(productBox);
-    // product.isAccessory 
-    //   ? containerAccessories.appendChild(productBox)
-    //   : containerClothing.appendChild(productBox);
   });
 }
 
-// function fetchProducts() {
-//   const httpRequest = new XMLHttpRequest();
-//   httpRequest.onreadystatechange = function() {
-//     if (this.readyState === 4) {
-//       if (this.status === 200) {
-//         const products = JSON.parse(this.responseText);
-//         displayProducts(products);
-//       } else {
-//         console.error("Failed to fetch products!");
-//       }
-//     }
-//   };
-//   httpRequest.open("GET", "https://dummyjson.com/products", true);
-//   httpRequest.send();
-// }
 
-// document.addEventListener("DOMContentLoaded", fetchProducts);
 function fetchProducts() {
   fetch("https://dummyjson.com/products")
     .then(response => {

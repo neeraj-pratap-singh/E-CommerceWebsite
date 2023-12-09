@@ -90,6 +90,7 @@ h2
 
 .product-details {
     text-align: center;
+    text-decoration: none;
 }
 
 .product-details h3, .product-details h4, .product-details h2 {
