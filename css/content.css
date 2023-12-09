@@ -68,6 +68,37 @@ h2
     color: rgb(3, 94, 94);
 }
 
+.product-box {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 15px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+.product-box:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.product-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.product-details {
+    text-align: center;
+}
+
+.product-details h3, .product-details h4, .product-details h2 {
+    margin: 5px 0;
+}
+
+/* Additional styling as needed */
+
+
 /* ----------------------------- MEDIA QUERY --------------------------- */
 
 @media(max-width: 1070px)
