@@ -28,13 +28,11 @@ function createProductBox(product) {
 }
 
 function displayProducts(products) {
-  const containerClothing = document.getElementById("containerClothing");
-  const containerAccessories = document.getElementById("containerAccessories");
+  const containerElectronics = document.getElementById("containerElectronics");
 
   products.forEach(product => {
-    console.log('response', product)
-    const productBox = createProductBox(product);
-    containerClothing.appendChild(productBox);
+      const productBox = createProductBox(product);
+      containerElectronics.appendChild(productBox);
   });
 }
 

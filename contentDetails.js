@@ -1,29 +1,26 @@
-console.clear()
+console.clear();
 
-let id = location.search.split('?')[1]
-console.log(id)
+let id = location.search.split('?')[1];
+console.log(id);
 
-if(document.cookie.indexOf(',counter=')>=0)
-{
-    let counter = document.cookie.split(',')[1].split('=')[1]
-    document.getElementById("badge").innerHTML = counter
+if (document.cookie.indexOf('counter=') >= 0) {
+    let counter = document.cookie.split('counter=')[1].split(';')[0];
+    document.getElementById("badge").innerHTML = counter;
 }
 
-function dynamicContentDetails(ob)
-{
-    let mainContainer = document.createElement('div')
-    mainContainer.id = 'containerD'
+function dynamicContentDetails(ob) {
+    let mainContainer = document.createElement('div');
+    mainContainer.id = 'containerD';
     document.getElementById('containerProduct').appendChild(mainContainer);
 
-    let imageSectionDiv = document.createElement('div')
-    imageSectionDiv.id = 'imageSection'
+    let imageSectionDiv = document.createElement('div');
+    imageSectionDiv.id = 'imageSection';
 
-    let imgTag = document.createElement('img')
-     imgTag.id = 'imgDetails'
-     //imgTag.id = ob.photos
-     imgTag.src = ob.preview
+    let imgTag = document.createElement('img');
+    imgTag.id = 'imgDetails';
+    imgTag.src = ob.thumbnail; // Updated to 'thumbnail' based on the JSON structure
 
-    imageSectionDiv.appendChild(imgTag)
+    imageSectionDiv.appendChild(imgTag);
 
     let productDetailsDiv = document.createElement('div')
     productDetailsDiv.id = 'productDetails'
@@ -31,7 +28,7 @@ function dynamicContentDetails(ob)
     // console.log(productDetailsDiv);
 
     let h1 = document.createElement('h1')
-    let h1Text = document.createTextNode(ob.name)
+    let h1Text = document.createTextNode(ob.title)
     h1.appendChild(h1Text)
 
     let h4 = document.createElement('h4')
@@ -63,15 +60,15 @@ function dynamicContentDetails(ob)
     productPreviewDiv.appendChild(h3ProductPreviewDiv)
 
     let i;
-    for(i=0; i<ob.photos.length; i++)
+    for(i=0; i<ob.images.length; i++)
     {
         let imgTagProductPreviewDiv = document.createElement('img')
         imgTagProductPreviewDiv.id = 'previewImg'
-        imgTagProductPreviewDiv.src = ob.photos[i]
+        imgTagProductPreviewDiv.src = ob.images[i]
         imgTagProductPreviewDiv.onclick = function(event)
         {
             console.log("clicked" + this.src)
-            imgTag.src = ob.photos[i]
+            imgTag.src = ob.images[i]
             document.getElementById("imgDetails").src = this.src 
             
         }
@@ -120,28 +117,16 @@ function dynamicContentDetails(ob)
 }
 
 
-
-// BACKEND CALLING
-
-let httpRequest = new XMLHttpRequest()
-{
-    httpRequest.onreadystatechange = function()
-    {
-        if(this.readyState === 4 && this.status == 200)
-        {
-            console.log('connected!!');
-            let contentDetails = JSON.parse(this.responseText)
-            {
-                console.log(contentDetails);
-                dynamicContentDetails(contentDetails)
-            }
+// BACKEND CALLING using fetch
+fetch('https://dummyjson.com/products/' + id) // Updated URL
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
         }
-        else
-        {
-            console.log('not connected!');
-        }
-    }
-}
-
-httpRequest.open('GET', 'https://dummyjson.com/product/'+id, true)
-httpRequest.send()  
+        return response.json();
+    })
+    .then(contentDetails => {
+        console.log('connected!!', contentDetails);
+        dynamicContentDetails(contentDetails);
+    })
+    .catch(error => console.error('There has been a problem with your fetch operation:', error));
