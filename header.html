@@ -4,41 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> HEADER | E-COMMERCE WEBSITE </title>
-    <!-- favicon -->
-    <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16">
-    <!-- EXTERNAL LINKS -->
-    <link rel="stylesheet" href="css/header.css">
-    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+    <title>Atulya Mart</title>
+    <link rel="icon" href="/img/AtulyaMart.png" type="image/png" sizes="16x16">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/4a3b1f73a2.js" defer></script>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/header.css">
 </head>
 <body>
-    
-    <header>
-        <section>
-            <!-- MAIN CONTAINER -->
-            <div id="container">
-                <!-- SHOP NAME -->
-                <div id="shopName"><a href="index.html"> <b>SHOP</b>LANE </a></div>
-                    <!-- COLLCETIONS ON WEBSITE -->
-                    <div id="collection">
-                        <div id="clothing"><a href="clothing.html"> CLOTHING </a></div>
-                        <div id="accessories"><a href="accessories.html"> ACCESSORIES </a></div>
+    <header class="bg-white shadow-sm fixed-top">
+        <div class="container">
+            <div class="row align-items-center py-2">
+                <div class="col-md-4">
+                    <div id="shopName" class="font-weight-bold">
+                        <a href="index.html" class="text-dark text-decoration-none">
+                            ATULYA<span class="text-danger">MART</span>
+                        </a>
                     </div>
-                    <!-- SEARCH SECTION -->
-                    <div id="search">
-                        <i class="fas fa-search search"></i>
-                        <input type="text" id="input" name="searchBox" placeholder="Search for Clothing and Accessories">
+                </div>
+                <div class="col-md-4">
+                    <div id="search" class="position-relative">
+                        <input type="text" id="input" name="searchBox" class="form-control" placeholder="Search for Accessories">
+                        <button class="search-btn btn position-absolute">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
-                    <!-- USER SECTION (CART AND USER ICON) -->
-                    <div id="user">
-                        <a href="cart.html"> <i class="fas fa-shopping-cart addedToCart"><div id="badge"> 0 </div></i></a>
-                        <a href="#"> <i class="fas fa-user-circle userIcon"></i> </a>
+                </div>
+                <div class="col-md-4 text-right">
+                    <div id="user" class="d-flex justify-content-end">
+                        <a href="cart.html" class="cart-icon position-relative d-inline-flex align-items-center justify-content-center text-dark mx-2">
+                            <i class="fas fa-shopping-cart"></i>
+                            <div id="badge" class="badge badge-danger position-absolute">0</div>
+                        </a>
+                        <a href="user.html" class="user-icon text-dark">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
                     </div>
+                </div>
             </div>
-
-        </section>
+        </div>
     </header>
-
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.9/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
