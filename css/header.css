@@ -1,103 +1,58 @@
-body {
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-    background-color: #f4f4f4;
-}
-
-header {
-    background-color: white;
-    padding: 10px 5%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    width: 90%;
-    top: 0;
-    left: 5%;
-    z-index: 100;
-}
-
-#container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#shopName {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-}
-
-#shopName span {
-    color: #E53238; /* A splash of color for the 'MART' */
-}
-
-#shopName a {
-    text-decoration: none;
-    color: inherit;
-}
+/* Custom CSS overrides */
 
 #search {
-    position: relative;
-    width: 40%;
+    width: 100%;
 }
 
-#input {
-    width: calc(100% - 40px);
-    padding: 8px 15px;
-    border: none;
-    border-bottom: 2px solid #ddd; /* Underline style */
-    font-size: 1em;
+#search .form-control {
+    padding-right: 2.5rem; /* Make room for the search button */
+    border-radius: 0.25rem; /* Consistent border-radius */
 }
 
 .search-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: none;
-    background: none;
-    cursor: pointer;
+    right: 0.5rem; /* Adjust to the padding of the input */
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.375rem 0.75rem;
 }
 
-#user .cart-icon, #user .user-icon {
-    position: relative;
-    font-size: 1.5em;
-    color: #333;
-    margin-left: 15px;
+#user .cart-icon {
+    margin-right: 1rem; /* Ensure space between cart icon and user icon */
 }
 
 #badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background-color: #ff3030;
-    color: white;
-    border-radius: 50%;
-    padding: 2px 6px;
-    font-size: 0.75em;
-    transform: translate(50%, -50%);
+    top: -8px; /* Adjust top position */
+    right: -8px; /* Adjust right position */
+    width: 18px; /* Set a fixed width */
+    height: 18px; /* Set a fixed height */
+    line-height: 18px; /* Align text vertically */
+    font-size: 0.75em; /* Adjust font size if needed */
+    border: 2px solid white; /* Add white border to separate badge from icon */
+    border-radius: 50%; /* Rounded corners */
+    transform: translate(50%, -50%); /* Adjust translate to better position the badge */
+    padding: 0; /* Remove padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Responsive Design */
+/* Responsive adjustments for the search input and icons */
 @media(max-width: 768px) {
-    #container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    #shopName, #search, #user {
-        margin-bottom: 10px;
-    }
-
-    #search {
-        width: 100%;
-    }
-
-    #input {
-        width: calc(100% - 60px); /* Adjust for mobile */
+    #search .form-control {
+        padding-right: 2.5rem; /* Same padding for mobile for consistency */
     }
 
     .search-btn {
-        width: 40px;
-        height: 40px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    #user {
+        justify-content: space-between; /* Space out icons on smaller screens */
+    }
+
+    #user .cart-icon, #user .user-icon {
+        margin: 0 5px; /* Add some margin on smaller screens */
     }
 }
