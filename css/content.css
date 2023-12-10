@@ -5,26 +5,16 @@ body {
 }
 
 h1 {
-    text-align: center;
-    padding: 20px;
     font-size: 24px;
     color: #444;
 }
 
-#containerClothing, #containerAccessories {
-    display: grid;
-    grid-gap: 15px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust for 3 items per row */
-    width: 90%;
-    margin: auto;
-    padding-bottom: 40px;
-}
+/* Bootstrap's classes handle padding and text alignment, so many of these styles are redundant */
 
 .product-box {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    overflow: hidden;
     transition: box-shadow 0.3s ease;
 }
 
@@ -39,30 +29,10 @@ h1 {
 
 .product-details {
     padding: 15px;
-    text-align: center;
 }
 
 .product-details h3, .product-details h4, .product-details h2 {
     margin: 10px 0;
 }
 
-/* Media Queries for Responsiveness */
-@media(max-width: 1070px) {
-    h1 { font-size: 22px; }
-    #containerClothing, #containerAccessories { width: 95%; }
-}
-
-@media(max-width: 850px) {
-    h1 { font-size: 20px; }
-    #containerClothing, #containerAccessories { width: 90%; }
-}
-
-@media(max-width: 600px) {
-    #containerClothing, #containerAccessories {
-        grid-template-columns: 1fr; /* 1 item per row for mobile */
-    }
-}
-
-@media(max-width: 505px) {
-    #containerClothing, #containerAccessories { width: 100%; }
-}
+/* Since we are using Bootstrap, we do not need custom media queries for the container width */
